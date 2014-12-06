@@ -5,7 +5,10 @@ angular.module('UniDrive', ['ngRoute', 'templates']).config(($routeProvider, $lo
   }).when('/login', {
     templateUrl: 'login.html'
     controller: 'LoginController'
+  }).when('/signup', {
+    templateUrl: 'signup.html'
+    controller: 'SignupController'
   })
 
-#  $locationProvider.html5Mode(true)
+  $locationProvider.html5Mode(true)
 )

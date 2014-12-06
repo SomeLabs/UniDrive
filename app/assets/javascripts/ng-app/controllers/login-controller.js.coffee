@@ -1,5 +1,5 @@
 angular.module('UniDrive')
-.controller('LoginController', ($scope, $httpProvider) =>
+.controller('LoginController', ($scope) =>
   $scope.login = ()=>
     params = {
       email: $scope.email,
