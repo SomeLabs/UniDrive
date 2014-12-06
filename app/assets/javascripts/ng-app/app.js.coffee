@@ -1,4 +1,4 @@
-angular
+  angular
   .module('UniDrive', [
     'ngRoute',
     'ngAnimate',
@@ -26,6 +26,9 @@ angular
       .when('/signup', {
         templateUrl: 'signup.html'
         controller: 'SignupController'
+      }).when('/profile', {
+        templateUrl: 'profile.html'
+        controller: 'ProfileController'
       })
 
     $locationProvider.html5Mode(true)

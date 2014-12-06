@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206081107) do
+ActiveRecord::Schema.define(version: 20141206132240) do
+
+  create_table "applications", force: true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "external_unique_id"
+    t.text     "metadata"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tokens", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "application_id"
+    t.string   "token"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

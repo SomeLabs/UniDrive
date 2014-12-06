@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/auth/:provider/callback', to: 'social_auth#create'
+
   root 'home#index'
   get '*path' => 'home#index'
 end
