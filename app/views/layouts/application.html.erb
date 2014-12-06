@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html>
-<base href="http://localhost:3000/" target="_blank">
-<head>
-  <title>UniDrive</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body ng-app="UniDrive">
-
-<%= yield %>
-
-</body>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>UniDrive</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body ng-app="UniDrive">
+    <div class="container-fluid">
+      <navbar></navbar>
+      <%= yield %>
+      <div class="footer">
+      </div>
+    </div>
+  </body>
 </html>

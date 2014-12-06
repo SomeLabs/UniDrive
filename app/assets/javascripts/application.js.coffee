@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require turbolinks
 #= require angular
+#= require angular-bootstrap
 #= require angular-animate
 #= require angular-aria
 #= require angular-cookies

@@ -8,7 +8,11 @@ module Api
 
         if resource.valid_password?(params[:password])
           sign_in(resource_name, resource)
-          render json: {success: true, message: 'Login Successfull'}
+          render json: {
+            success: true,
+            model: resource.attributes,
+            message: 'Login Successfull'
+          }
         else
           invalid_login_attempt
         end

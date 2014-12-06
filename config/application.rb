@@ -21,5 +21,17 @@ module UniDrive
     # config.i18n.default_locale = :de
 
     config.autoload_paths << Rails.root.join('app/services')
+
+    # below is for loading bootstrap sass
+    # Bower asset paths
+    root.join('vendor', 'assets', 'bower_components').to_s.tap do |bower_path|
+      config.sass.load_paths << bower_path
+      config.assets.paths << bower_path
+    end
+    # Precompile Bootstrap fonts
+    config.assets.precompile << %r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff)$)
+    # Minimum Sass number precision required by bootstrap-sass
+    ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
+
   end
 end
