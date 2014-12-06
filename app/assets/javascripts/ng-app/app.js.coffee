@@ -32,6 +32,9 @@
         templateUrl: 'profile.html'
         controller: 'ProfileController'
       })
+      .when('/about', {
+        templateUrl: 'about.html'
+      })
 
     $locationProvider.html5Mode(true)
   )
