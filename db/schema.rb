@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 20141206173459) do
     t.string   "provider"
   end
 
-  create_table "profiles", force: true do |t|
+  create_table "profile", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "display_name"
