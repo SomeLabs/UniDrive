@@ -9,10 +9,12 @@ angular.module('UniDrive')
     $scope.logout = ->
       auth.logout()
 
+    $scope.user = ->
+      auth.current_user
+
     $scope.status = {
       isopen: false
     }
-
 
     $scope.toggleDropdown = ($event) ->
       $event.preventDefault()

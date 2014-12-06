@@ -35,6 +35,10 @@
       .when('/about', {
         templateUrl: 'about.html'
       })
+      .when('/files', {
+        templateUrl: 'files.html'
+        controller: 'FilesController'
+      })
 
     $locationProvider.html5Mode(true)
   )
