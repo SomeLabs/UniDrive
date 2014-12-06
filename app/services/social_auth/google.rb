@@ -1,5 +1,5 @@
 module SocialAuth
-  class DropBox < ::SocialAuth::AuthMiddleLayer
+  class Google < ::SocialAuth::AuthMiddleLayer
 
     def create_application
       application = self.user.applications.new

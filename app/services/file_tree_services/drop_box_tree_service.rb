@@ -1,7 +1,7 @@
 require 'dropbox_sdk'
 
 module FileTreeServices
-  class DropBoxTreeService
+  class DropBoxTreeService < FileTreeServices::MiddleTreeService
 
     attr_accessor :user, :application, :token
 

@@ -25,6 +25,8 @@ gem 'turbolinks'
 
 gem 'omniauth'
 gem 'omniauth-dropbox-oauth2'
+gem 'omniauth-windowslive'
+gem 'omniauth-google-oauth2'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

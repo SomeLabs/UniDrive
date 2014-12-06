@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206173459) do
+ActiveRecord::Schema.define(version: 20141206215613) do
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20141206173459) do
   create_table "o_auth_tokens", force: true do |t|
     t.integer  "user_id"
     t.integer  "application_id"
-    t.string   "token"
+    t.text     "token"
     t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20141206173459) do
     t.integer  "user_id"
     t.string   "provider"
     t.string   "display_name"
-    t.integer  "quota"
+    t.integer  "quota",        limit: 8
     t.integer  "used"
     t.text     "metadata"
     t.datetime "created_at"

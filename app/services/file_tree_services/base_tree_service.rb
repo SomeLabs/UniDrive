@@ -17,6 +17,8 @@ module FileTreeServices
     def type_hash
       @_type_hash ||= {
           dropbox_oauth2:  'FileTreeServices::DropBoxTreeService',
+          windowslive:  'FileTreeServices::UniWindowsLiveTreeService',
+          google_oauth2:  'FileTreeServices::GoogleTreeService',
       }
     end
   end

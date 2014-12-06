@@ -17,6 +17,8 @@ module SocialAuth
     def type_hash
       @_type_hash ||= {
           dropbox_oauth2:  'SocialAuth::DropBox',
+          windowslive: 'SocialAuth::UniWindowsLive',
+          google_oauth2: 'SocialAuth::Google'
       }
     end
 
