@@ -41,12 +41,16 @@ module FileTreeServices
 
       file_info.save
 
-      fetch_from_cursor(file)
+      fetch_from_cursor
     end
 
-    def fetch_from_cursor(parent)
+    def fetch_from_cursor
       data = dropbox_client.delta
       data['entries'].each do |entry|
+        new_path = entry.first
+        root_path = new_path.split('/')[0..-2].join('/').presence || '/'
+
+        parent = self.user.files.where(application_id: self.application.id, path: root_path)
         file = self.user.files.new
         file.application = self.application
         file.parent_id = parent.id

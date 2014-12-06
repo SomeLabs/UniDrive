@@ -7,7 +7,6 @@ module SocialAuth
       self.user = options[:user]
       self.auth_hash = options[:auth_hash]
       self.token = options[:auth_hash][:credentials][:token]
-      binding.pry
     end
 
     def create

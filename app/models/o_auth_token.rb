@@ -19,7 +19,7 @@ class OAuthToken < ActiveRecord::Base
         application: self.application
     }
 
-    ::ProfileServices::BaseInfoFetchService.new(options).delay.run
+    ::ProfileServices::BaseInfoFetchService.new(options).run
   end
 
   def queue_fetch_file_info_service
@@ -29,7 +29,7 @@ class OAuthToken < ActiveRecord::Base
         application: self.application
     }
 
-    ::FileTreeServices::BaseTreeService.new(options).delay.run
+    ::FileTreeServices::BaseTreeService.new(options).run
   end
 
 end
