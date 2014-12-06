@@ -11,7 +11,7 @@ angular.module('UniDrive')
     login_error = ->
       console.log 'login error'
 
-    $http.post('/api/v1/users/sign_in', params).then(login_success, login_error)
+    $http.post('/api/v1/login', params).then(login_success, login_error)
 
 
 )

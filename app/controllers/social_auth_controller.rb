@@ -1,6 +1,9 @@
 class SocialAuthController < ApplicationController
 
+  # before_action :authenticate_user!
+
   def create
+    binding.pry
     options = {
       user: current_user,
       provider: env['omniauth.auth'][:provider],
