@@ -29,7 +29,6 @@
       .when('/', {
         templateUrl: 'home.html'
         controller: 'HomeController'
-        resolve: ''
       })
       .when('/login', {
         templateUrl: 'login.html'
@@ -47,6 +46,10 @@
         templateUrl: 'about.html'
       })
       .when('/files', {
+        templateUrl: 'files.html'
+        controller: 'FilesController'
+      })
+      .when('/files/:id', {
         templateUrl: 'files.html'
         controller: 'FilesController'
       })

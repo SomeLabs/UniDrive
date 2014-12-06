@@ -5,6 +5,7 @@
         <img alt="Brand" src="/assets/branding/u_32.png">
       </a>
       <ul class="dropdown-menu" role="menu">
+        <li ng-show="isLoggedIn()"><a href="/files">Files</a></li>
         <li ng-show="isLoggedIn()"><a href="/profile">Account</a></li>
         <li ng-show="isLoggedIn()">
           <a href="/" ng-click="logout()">Logout</a>
