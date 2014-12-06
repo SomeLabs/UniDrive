@@ -66,6 +66,7 @@ module SocialAuth
       end
 
       {
+          data: {user: self.user, application: application, token: token} ,
           message: 'Application Successfully Connected',
           status: true
       }

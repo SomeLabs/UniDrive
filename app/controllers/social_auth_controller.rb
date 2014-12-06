@@ -9,8 +9,8 @@ class SocialAuthController < ApplicationController
       auth_hash: env['omniauth.auth']
     }
 
-    response = ::SocialAuth::Base.new(options).create
+    @response = ::SocialAuth::Base.new(options).create
 
-    render json: response
+    render 'social_auth/auth_response', layout: false
   end
 end

@@ -1,0 +1,20 @@
+<html>
+<head>
+  <%= javascript_include_tag 'application' %>
+  <% if @response[:status] %>
+    <% event = "#{@response[:token].provider}_auth_passed" %>
+  <% else %>
+    <% event = "#{@response[:token].provider}_auth_failed" %>
+  <% end %>
+  <script type="text/javascript">
+    setTimeout(function () {
+        window.close();
+        $(window.parent.window.document).find('body').trigger('<%= event %>');
+    }, 2000);
+  </script>
+</head>
+<body>
+    This window will close in 2 secs
+</body>
+
+</html>

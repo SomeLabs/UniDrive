@@ -22,3 +22,14 @@ $(document).on 'page:load', ->
   $('[ng-app]').each ->
     module = $(this).attr('ng-app')
     angular.bootstrap(this, [module])
+
+
+
+$(document).ready(()->
+  $('body').bind('dropbox_oauth2_auth_passed', ()->
+    angular.element('#angular-view-container').scope().dropBoxAuthPassed();
+  )
+  $('body').bind('dropbox_oauth2_auth_failed', ()->
+    angular.element('#angular-view-container').scope().dropBoxAuthFailed();
+  )
+)

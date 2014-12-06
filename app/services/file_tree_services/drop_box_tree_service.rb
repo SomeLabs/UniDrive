@@ -65,7 +65,7 @@ module FileTreeServices
         file_info.modified = entry.last['modified']
         file_info.client_mtime = entry.last['client_mtime']
         file_info.thumb_exists = entry.last['thumb_exists']
-        # file_info.contents = (file_data['contents'] || []).to_json
+        # file_info.contets = (file_data['contents'] || []).to_json
 
         file_info.save
       end
