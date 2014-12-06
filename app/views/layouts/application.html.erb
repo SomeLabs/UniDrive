@@ -10,6 +10,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <script type="text/javascript">
+      angular.module('UniDrive').constant('current_user', <%= if current_user.present? then current_user.to_json.html_safe else 'null' end %>)
+    </script>
   </head>
   <body ng-app="UniDrive">
     <navbar></navbar>

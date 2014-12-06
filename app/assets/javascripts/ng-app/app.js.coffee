@@ -12,13 +12,24 @@
     'templates'
   ])
   .config( ($httpProvider) ->
-    $httpProvider.defaults.headers.common["X-CSRF-Token"] = $("meta[name=\"csrf-token\"]").attr("content")
+    $httpProvider.interceptors.push('AuthInterceptor')
+  )
+  .run( ($location, auth, current_user ) ->
+    public_paths = ['/', '/login', '/about', '/signup']
+    if current_user?
+      auth.current_user = current_user
+      if $location.path() in public_paths
+        $location.path('/files')
+    else if $location.path() not in public_paths
+      $location.path('/login')
+
   )
   .config(($routeProvider, $locationProvider) =>
     $routeProvider
       .when('/', {
         templateUrl: 'home.html'
         controller: 'HomeController'
+        resolve: ''
       })
       .when('/login', {
         templateUrl: 'login.html'

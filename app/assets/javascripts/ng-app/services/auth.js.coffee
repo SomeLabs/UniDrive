@@ -8,7 +8,7 @@ angular.module('UniDrive').service 'auth', ($http, $window) ->
     )
 
   @logout = (user) ->
-    $http.delete('/api/v1/logout').then( -> $window.location.replace('/'))
+    $http.delete('/api/v1/logout').then( -> $window.location.replace('/login'))
 
   @isLoggedIn = =>
     true if @current_user?
