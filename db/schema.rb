@@ -13,15 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20141206173459) do
 
-  create_table "applications", force: true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "external_unique_id"
-    t.text     "metadata"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
     t.integer  "attempts",   default: 0, null: false
@@ -49,8 +40,8 @@ ActiveRecord::Schema.define(version: 20141206173459) do
   end
 
   create_table "file_informations", force: true do |t|
-    t.integer  "file_id"
-    t.string   "hash"
+    t.integer  "external_file_id"
+    t.string   "file_hash"
     t.string   "rev"
     t.string   "icon"
     t.integer  "bytes"
@@ -83,22 +74,13 @@ ActiveRecord::Schema.define(version: 20141206173459) do
     t.string   "provider"
   end
 
-  create_table "profile", force: true do |t|
+  create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "display_name"
     t.integer  "quota"
     t.integer  "used"
     t.text     "metadata"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tokens", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "application_id"
-    t.string   "token"
-    t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
