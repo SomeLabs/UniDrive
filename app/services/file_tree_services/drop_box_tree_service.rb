@@ -16,7 +16,7 @@ module FileTreeServices
     end
 
     def fetch_data(path='/', parent_file=nil)
-      file_data = client.metadata(path)
+      file_data = dropbox_client.metadata(path)
       file = self.user.files.new
       file.application = self.application
       file.parent_id = parent_file.id if parent_file.present?
@@ -24,9 +24,10 @@ module FileTreeServices
       file.is_dir = file_data['is_dir']
       file.save
 
+
       file_info = FileInformation.new
-      file_info.file_id = file.id
-      file_info.hash = file_data['hash']
+      file_info.external_file = file
+      file_info.file_hash = file_data['hash']
       file_info.rev = file_data['rev']
       file_info.icon = file_data['icon']
       file_info.bytes = file_data['bytes']
@@ -54,8 +55,8 @@ module FileTreeServices
         file.save
 
         file_info = FileInformation.new
-        file_info.file_id = file.id
-        file_info.hash = entry.last['hash']
+        file_info.external_file_id = file.id
+        file_info.file_hash = entry.last['hash']
         file_info.rev = entry.last['rev']
         file_info.icon = entry.last['icon']
         file_info.bytes = entry.last['bytes']

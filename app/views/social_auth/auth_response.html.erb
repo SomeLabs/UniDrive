@@ -2,7 +2,7 @@
 <head>
   <%= javascript_include_tag 'application' %>
   <% if @response[:status] %>
-    <% event = "#{@response[:token].provider}_auth_passed" %>
+    <% event = "#{@response[:data][:token].provider}_auth_passed" %>
   <% else %>
     <% event = "#{@response[:token].provider}_auth_failed" %>
   <% end %>

@@ -6,5 +6,4 @@ angular.module('UniDrive')
 
   $scope.dropBoxAuthPassed = () ->
     # Do something
-
 )

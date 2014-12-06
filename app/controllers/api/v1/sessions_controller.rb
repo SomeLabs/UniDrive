@@ -11,7 +11,7 @@ module Api
           render json: {
             success: true,
             model: resource.attributes,
-            message: 'Login Successfull'
+            message: 'Login Successful'
           }
         else
           invalid_login_attempt

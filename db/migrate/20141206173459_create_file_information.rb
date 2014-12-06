@@ -1,8 +1,8 @@
 class CreateFileInformation < ActiveRecord::Migration
   def change
     create_table :file_informations do |t|
-      t.integer :file_id
-      t.string :hash
+      t.integer :external_file_id
+      t.string :file_hash
       t.string :rev
       t.string :icon
       t.integer :bytes

@@ -6,7 +6,7 @@ module SocialAuth
     def initialize(options={})
       self.user = options[:user]
       self.auth_hash = options[:auth_hash]
-      self.token = options[:auth_hash][:token]
+      self.token = options[:auth_hash][:credentials][:token]
     end
 
     def create
