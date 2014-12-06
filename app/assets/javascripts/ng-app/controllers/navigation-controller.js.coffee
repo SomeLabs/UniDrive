@@ -7,4 +7,14 @@ angular.module('UniDrive')
     $scope.isLoggedIn = auth.isLoggedIn
 
     $scope.logout = ->
-      auth.logout().then(-> auth.current_user = null)
+      auth.logout()
+
+    $scope.status = {
+      isopen: false
+    }
+
+
+    $scope.toggleDropdown = ($event) ->
+      $event.preventDefault()
+      $event.stopPropagation()
+      $scope.status.isopen = !$scope.status.isopen

@@ -17,3 +17,17 @@ $icon-font-path: "bootstrap-sass/dist/fonts/bootstrap/";
 @import "bootstrap-sass/dist/css/bootstrap";
 @import "bootstrap-sass/dist/css/bootstrap-theme";
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+// Move the below to helper classes later
+
+.no-padding {
+  padding: 0px !important;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.pmA {
+  padding: 9px !important;
+}

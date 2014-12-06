@@ -10,6 +10,4 @@ angular.module('UniDrive')
       login_error = (response) ->
         $scope.loginError = response.data.message
       auth.login($scope.user).then(login_success, login_error)
-
-
 )

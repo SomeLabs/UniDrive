@@ -1,5 +1,6 @@
   angular
   .module('UniDrive', [
+    'ui.bootstrap',
     'ngRoute',
     'ngAnimate',
     'ngAria',
@@ -26,7 +27,8 @@
       .when('/signup', {
         templateUrl: 'signup.html'
         controller: 'SignupController'
-      }).when('/profile', {
+      })
+      .when('/profile', {
         templateUrl: 'profile.html'
         controller: 'ProfileController'
       })

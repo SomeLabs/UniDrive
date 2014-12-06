@@ -6,13 +6,14 @@
     <title>UniDrive</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body ng-app="UniDrive">
+    <navbar></navbar>
     <div class="container-fluid">
-      <navbar></navbar>
       <%= yield %>
       <div class="footer">
       </div>
