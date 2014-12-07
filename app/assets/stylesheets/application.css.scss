@@ -65,6 +65,12 @@ ul.file-list {
         font-size: 60px;
       }
       span.provider-icon {
+        &.fa-dropbox{
+          color: #007ee5;
+        }
+        &.fa-google {
+          color: #F90101;
+        }
         &:before {
           position: absolute;
           height: 20px;
@@ -74,10 +80,18 @@ ul.file-list {
           // bottom: 0 !important;
           // right: 0 !important;
           font-size: 26px;
-          color: #007ee5;
-
         }
       }
     }
+  }
+}
+
+div.file-information {
+  bottom: 0;
+  position: absolute;
+  top: 70px;
+  right: 0;
+  .file-provider:before {
+    font-size: 90px;
   }
 }

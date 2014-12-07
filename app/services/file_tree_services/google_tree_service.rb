@@ -20,7 +20,7 @@ module FileTreeServices
       files.each do |file_data|
         file = self.user.files.new
         file.application = self.application
-        file.path = file_data['self_link']
+        file.path = file_data['title']
         file.is_dir = false
         file.save
 

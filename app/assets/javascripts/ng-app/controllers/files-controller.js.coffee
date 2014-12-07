@@ -16,12 +16,13 @@ angular.module('UniDrive')
 
     $scope.getProviderClass = (provider) ->
       providers = {
-        'dropbox_oauth2': 'fa-dropbox'
+        'dropbox_oauth2': 'fa-dropbox',
+        'google_oauth2': 'fa-google'
       }
       providers[provider]
 
     $scope.showMoreInfo = (file) ->
-      console.log file
+      $scope.selected = file
 
     $scope.open = (file) ->
       if file.is_dir

@@ -12,7 +12,7 @@ module Api
       end
 
       def link
-        @file = ::ExternalFile.where(id: params[:id])
+        @file = ::ExternalFile.where(id: params[:id]).first
         options = {
             user: current_user,
             provider: @file.application.provider
@@ -21,7 +21,7 @@ module Api
         link = ::LinkServices::BaseService.new(options).fetch_link(@file)
 
 
-        render { json: {link: link} }
+        render json: {link: link}, status: 200
       end
 
     end

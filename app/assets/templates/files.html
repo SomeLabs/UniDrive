@@ -6,10 +6,41 @@
         </span>
       </div>
       <div class='file-name'>
-        {{file.path}}
+        {{file.name}}
       </div>
     </li>
   </ul>
 </div>
-<div class='col-md-3'>
+<div class='col-md-3 file-information'>
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading text-center">File Information</div>
+    <div class="panel-body">
+      <div class="fa {{getProviderClass(selected.provider)}} file-provider" >
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>File Name:</td>
+          <td>{{selected.name}}</td>
+        </tr>
+        <tr>
+          <td>File Size:</td>
+          <td>{{selected.info.size}}</td>
+        </tr>
+        <tr>
+          <td>File Modified:</td>
+          <td>{{selected.info.modified}}</td>
+        </tr>
+        <tr>
+          <td>File Type:</td>
+          <td>{{selected.info.mime_type}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
