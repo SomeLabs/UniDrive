@@ -1,6 +1,7 @@
   angular
   .module('UniDrive', [
     'ui.bootstrap',
+    'googlechart',
     'ngRoute',
     'ngAnimate',
     'ngAria',
@@ -56,3 +57,7 @@
 
     $locationProvider.html5Mode(true)
   )
+  # .value('googleChartApiConfig', {
+  #   version: '1'
+  #   }
+  # )

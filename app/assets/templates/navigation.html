@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse" role="navigation">
   <div class="navbar-close">
-    <div class="btn-group pmA" dropdown is-open="status.isopen">
+    <div class="btn-group pmA pul-left" dropdown is-open="status.isopen">
       <a href class="dropdown-toggle" dropdown-toggle ng-disabled="disabled">
         <img alt="Brand" src="/assets/branding/u_32.png">
       </a>
@@ -25,6 +25,14 @@
       </li>
       <li ng-show="isLoggedIn()">
         <a href="/profile" >{{ user()['email'] }}</a>
+      </li>
+    </ul>
+    <ul ng-show="isActive('/files')" class='nav navbar-nav navbar-right col-md-10'>
+      <li >
+        <a ng-click="prev()">Back</a>
+      </li>
+      <li >
+        <a ng-click="next()">Forward</a>
       </li>
     </ul>
   </div>

@@ -1,8 +1,8 @@
 angular.module('UniDrive')
-  .controller 'NavigationController', ($scope, $location, auth) ->
+  .controller 'NavigationController', ($scope, $location, $window, auth) ->
 
     $scope.isActive = (path) ->
-      $location.path() == path
+      $location.path().indexOf(path) is 0
 
     $scope.isLoggedIn = auth.isLoggedIn
 
@@ -11,6 +11,12 @@ angular.module('UniDrive')
 
     $scope.user = ->
       auth.current_user
+
+    $scope.prev = ->
+      $window.history.back()
+
+    $scope.next = ->
+      $window.history.forward()
 
     $scope.status = {
       isopen: false
