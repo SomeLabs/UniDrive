@@ -1,9 +1,15 @@
-<ul ng-repeat = "file in files">
-  <li>
-    <a href="/files/{{file.id}}">{{ file.path }}</a>
-    <br>
-    <a href="">{{ file.id }}</a>
-    <br>
-    <a href="">{{ file.provider }}</a>
-  </li>
-</ul>
+<div class="col-md-9">
+  <ul class='file-list'>
+    <li ng-repeat="file in files">
+      <div class='fa' ng-dblclick="open(file)" ng-click='showMoreInfo(file)' ng-class="{'fa-file-o': !file.is_dir, 'fa-folder-o': file.is_dir}">
+        <span class="fa provider-icon {{getProviderClass(file.provider)}}" >
+        </span>
+      </div>
+      <div class='file-name'>
+        {{file.path}}
+      </div>
+    </li>
+  </ul>
+</div>
+<div class='col-md-3'>
+</div>

@@ -4,7 +4,7 @@ module Api
       before_action :authenticate_user!
 
       def index
-        @files = current_user.files.where(path: '/').all
+        @files = current_user.files.where(parent_id: nil)
       end
 
       def show

@@ -1,5 +1,5 @@
 angular.module('UniDrive')
-  .controller('FilesController', ($scope, $http, $routeParams) ->
+  .controller('FilesController', ($scope, $http, $location, $routeParams) ->
     @id = $routeParams.id
     $scope.files = []
     @path = =>
@@ -12,8 +12,23 @@ angular.module('UniDrive')
       $scope.files = response.data
 
     @files_error = (response) ->
-      debugger
       $scope
+
+    $scope.getProviderClass = (provider) ->
+      providers = {
+        'dropbox_oauth2': 'fa-dropbox'
+      }
+      providers[provider]
+
+    $scope.showMoreInfo = (file) ->
+      console.log file
+
+    $scope.open = (file) ->
+      if file.is_dir
+        $location.path("/files/#{file.id}")
+      else
+        # ask for downloading/opening file
+        console.log('download file')
 
     $scope.files = $http.get(@path()).then(@files_success, @files_error)
   )

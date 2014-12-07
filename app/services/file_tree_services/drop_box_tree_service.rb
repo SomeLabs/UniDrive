@@ -50,10 +50,10 @@ module FileTreeServices
         new_path = entry.first
         root_path = new_path.split('/')[0..-2].join('/').presence || '/'
 
-        parent = self.user.files.where(application_id: self.application.id, path: root_path)
+        parent = self.user.files.where(application_id: self.application.id, path: root_path).first
         file = self.user.files.new
         file.application = self.application
-        file.parent_id = parent.id
+        file.parent_id = parent.id if parent.present?
         file.path = entry.first
         file.is_dir = entry.last['is_dir']
         file.save

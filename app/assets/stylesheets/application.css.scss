@@ -12,12 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
-$icon-font-path: "bootstrap-sass/dist/fonts/bootstrap/";
+$icon-font-path: "bootstrap-sass/dist/fonts/";
 @import "bootstrap-sass/dist/css/bootstrap";
 @import "bootstrap-sass/dist/css/bootstrap-theme";
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
-
 // Move the below to helper classes later
 
 .no-padding {
@@ -42,4 +42,43 @@ $icon-font-path: "bootstrap-sass/dist/fonts/bootstrap/";
 
 .margin-auto {
   margin: auto !important;
+}
+
+ul.file-list {
+  li {
+    position: relative;
+    list-style: none;
+    float: left;
+    margin: 20px;
+    height: 100px;
+    width: 60px;
+    &:hover {
+      color: #9af;
+    }
+    // Add icons according to fileTypes
+    div.file-name {
+      text-overflow: ellipsis;
+      overflow: auto;
+    }
+    div.fa {
+      &:before {
+        font-size: 60px;
+        color: #9aF;
+      }
+      span.provider-icon {
+        &:before {
+          position: absolute;
+          height: 20px;
+          width: 20px;
+          right: 8px;
+          bottom: 45px;
+          // bottom: 0 !important;
+          // right: 0 !important;
+          font-size: 26px;
+          color: #007ee5;
+
+        }
+      }
+    }
+  }
 }
