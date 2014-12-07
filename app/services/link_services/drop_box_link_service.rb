@@ -10,7 +10,6 @@ module LinkServices
     end
 
     def fetch_link(file)
-      binding.pry
       self.token = file.application.token
       dropbox_client.shares(file.path)['url']
     end

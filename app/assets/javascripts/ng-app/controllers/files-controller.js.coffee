@@ -1,5 +1,5 @@
 angular.module('UniDrive')
-  .controller('FilesController', ($scope, $http, $location, $routeParams) ->
+  .controller('FilesController', ($scope, $http, $location, $routeParams, $modal, $window) ->
     @id = $routeParams.id
     $scope.files = []
     @path = =>
@@ -29,7 +29,13 @@ angular.module('UniDrive')
         $location.path("/files/#{file.id}")
       else
         # ask for downloading/opening file
-        console.log('download file')
+        $http.get("/api/v1/files/#{file.id}/link").then( (response) ->
+          $window.open(response.data.link, 'Opening File', "resizable=no,menubar=no,scrollbars=no, top=150,left=350,location=no,resizable=no,status=no")
+        #   $modal.open({
+        #     template: "<iframe src='#{response.data.link}' height='100%', width='100%'></iframe>",
+        #     size: 'lg'
+        #   })
+        )
 
     $scope.files = $http.get(@path()).then(@files_success, @files_error)
   )

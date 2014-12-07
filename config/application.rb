@@ -33,5 +33,8 @@ module UniDrive
     # Minimum Sass number precision required by bootstrap-sass
     ::Sass::Script::Number.precision = [10, ::Sass::Script::Number.precision].max
 
+    config.action_dispatch.default_headers = {
+        'X-Frame-Options' => 'ALLOWALL'
+    }
   end
 end
