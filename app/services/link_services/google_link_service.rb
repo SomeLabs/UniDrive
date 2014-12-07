@@ -10,7 +10,7 @@ module LinkServices
     def fetch_link(file)
       self.token = file.application.token.token 
       drive = google_client.discovered_api('drive', 'v2')
-      result = google_client.execute(api_method: drive.files.get, parameters: {'fileId' => file.file_information.hash})
+      result = google_client.execute(api_method: drive.files.get, parameters: {'fileId' => file.file_information.file_hash})
       result.data.to_hash['downloadUrl']
     end
 
