@@ -38,6 +38,7 @@ gem 'spring',        group: :development
 gem 'pry-byebug',        group: :development
 
 gem 'dropbox-sdk'
+gem 'google_drive'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

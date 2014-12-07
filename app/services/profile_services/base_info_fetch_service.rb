@@ -3,6 +3,7 @@ module ProfileServices
 
     SERVICE_HASH = {
         dropbox_oauth2:  'ProfileServices::DropBoxInfoFetchService',
+        google_oauth2:  'ProfileServices::GoogleInfoFetchService',
     }
 
     attr_accessor :user, :token, :application
