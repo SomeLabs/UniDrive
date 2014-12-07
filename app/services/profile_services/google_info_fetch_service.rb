@@ -17,8 +17,9 @@ module ProfileServices
       result = google_client.execute(api_method: drive.about.get)
       account_info = result.data.to_hash
 
-      profile = self.user.profiles.new
+      profile = self.user.profiles.where(provider: self.application.provider, application_id: self.application.id) || self.user.profile.new
       profile.provider = self.application.provider
+      profile.application_id = self.application.id
       profile.display_name = account_info['user']['displayName']
       profile.quota = account_info['quotaBytesTotal']
       profile.used = account_info['quotaBytesUsed']

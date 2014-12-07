@@ -14,30 +14,46 @@ angular.module('UniDrive')
 
   $scope.chartObject = {};
 
-  $http.get('/api/v1/user').then( (response) =>
-    auth.current_user = response.data
-    chartData = {
-      cols: [
-        {id: "service", label: "Provider", type: "string"},
-        {id: "used", label: "Space Used", type: "number"}
-      ],
-      rows: [
-        {c: [
-          {v: 'Google'},
-          {v: 80}
-        ]},
-        {c: [
-          {v: 'SkyDrive'},
-          {v: 30}
-        ]}
-      ]
-    }
-    $scope.chartObject.data = chartData
-    $scope.chartObject.type = 'PieChart'
-    $scope.chartObject.options = {
-        'title': 'Your current Usage'
-    }
-  )
+  $scope.fetchUser = ()=>
+    $http.get('/api/v1/user').then( (response) =>
+      auth.current_user = response.data
+      profiles = auth.current_user.profiles
+      $scope.profiles = profiles
+
+      usageHash = {}
+      profiles.forEach((profile)->
+        if !usageHash[profile.provider]
+          usageHash[profile.provider] = 0
+        usageHash[profile.provider] += profile.used
+      )
+
+      $scope.showChart = usageHash['google_oauth2'] && usageHash['dropbox_oauth2']
+      if $scope.showChart
+        chartData = {
+          cols: [
+            {id: "service", label: "Provider", type: "string"},
+            {id: "used", label: "Space Used", type: "number"}
+          ],
+          rows: [
+            {c: [
+              {v: 'Google'},
+              {v: usageHash['google_oauth2']}
+            ]},
+            {c: [
+              {v: 'DropBox'},
+              {v: usageHash['dropbox_oauth2']}
+            ]}
+          ]
+        }
+        $scope.chartObject.data = chartData
+        $scope.chartObject.type = 'PieChart'
+        $scope.chartObject.options = {
+          'title': 'Your current Usage'
+        }
+    )
+
+  $scope.fetchUser()
   $scope.dropBoxAuthPassed = () ->
-    # Do something
+    console.log(1)
+    $scope.fetchUser()
 )

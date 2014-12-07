@@ -1,6 +1,7 @@
 <html>
 <head>
   <%= javascript_include_tag 'application' %>
+
   <% if @response[:status] %>
     <% event = "#{@response[:data][:token].provider}_auth_passed" %>
   <% else %>
@@ -8,8 +9,8 @@
   <% end %>
   <script type="text/javascript">
     setTimeout(function () {
+        $(window.opener.document).find('body').trigger('<%= event %>');
         window.close();
-        $(window.parent.window.document).find('body').trigger('<%= event %>');
     }, 2000);
   </script>
 </head>

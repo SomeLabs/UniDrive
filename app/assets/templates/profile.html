@@ -1,6 +1,18 @@
 <!-- Include all google libraries here so it doesn't affect any of the user experience -->
-<a href="#" class='fa fa-dropbox' ng-click="openDropboxDialog()">Dropbox</a>
-<a href="#" class='fa fa-windows' ng-click="openLiveDialog()">Windows Live</a>
-<a href="#" class='fa fa-google' ng-click="openDriveDialog()">Google</a>
 
-<div google-chart chart="chartObject" style="height:600px; width:100%;"></div>
+<div google-chart ng-show="showChart" chart="chartObject" style="height:600px; width:100%;"></div>
+<div class="info" ng-hide="showChart" style="margin:10px">
+    To view statistics you need to connect to multiple Services
+</div>
+
+<a href="#" class='fa fa-dropbox' ng-click="openDropboxDialog()" style="font-size: 2em; margin-right: 10px;">Dropbox</a>
+<a href="#" class='fa fa-windows' ng-click="openLiveDialog()" style="font-size: 2em; margin-right: 10px;">Windows Live</a>
+<a href="#" class='fa fa-google' ng-click="openDriveDialog()" style="font-size: 2em; margin-right: 10px;">Google</a>
+
+<div class="profiles-container" style="margin-top:15px">
+    <div ng-repeat="profile in profiles">
+        Display Name: {{profile.display_name}} <br/>
+        Service: {{profile.provider}} <br/>
+        Usage: {{profile.used}}/{{profile.quota}} <br/>
+    </div>
+</div>
