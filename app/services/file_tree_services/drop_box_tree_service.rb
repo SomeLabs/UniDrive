@@ -37,7 +37,7 @@ module FileTreeServices
       file_info.modified = file_data['modified']
       file_info.client_mtime = file_data['client_mtime']
       file_info.thumb_exists = file_data['thumb_exists']
-      # file_info.contents = (file_data['contents'] || []).to_json
+      file_info.mime_type = file_data['mime_type']
 
       file_info.save
 
@@ -46,6 +46,7 @@ module FileTreeServices
 
     def fetch_from_cursor
       data = dropbox_client.delta
+
       data['entries'].each do |entry|
         new_path = entry.first
         root_path = new_path.split('/')[0..-2].join('/').presence || '/'
@@ -70,7 +71,7 @@ module FileTreeServices
         file_info.modified = entry.last['modified']
         file_info.client_mtime = entry.last['client_mtime']
         file_info.thumb_exists = entry.last['thumb_exists']
-        # file_info.contets = (file_data['contents'] || []).to_json
+        file_info.mime_type = entry.last['mime_type']
 
         file_info.save
       end

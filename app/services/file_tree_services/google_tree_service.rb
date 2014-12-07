@@ -26,13 +26,14 @@ module FileTreeServices
 
         file_info = FileInformation.new
         file_info.external_file = file
-        file_info.file_hash = file_data['md5Checksum']
+        file_info.file_hash = file_data['id']
         file_info.rev = file_data['version']
         file_info.icon = file_data['iconLink']
         file_info.bytes = file_data['quotaBytesUsed']
         file_info.size = file_data['fileSize']
         file_info.revision = file_data['revision']
         file_info.modified = file_data['modifiedByMeDate']
+        file_info.mime_type = file_data['mimeType']
         file_info.save
       end
 
